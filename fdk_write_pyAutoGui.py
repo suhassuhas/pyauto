@@ -57,91 +57,90 @@ def char_2_hex(n,bits=8):
 
 
 
-
-
-q=""
-x=str(f.readline())
-while x:
-    #print(x[0:3])
-    #print(x[0])
-    if(x[0]!="\n"):
-        if("int" in x):
-            for i in range(len(x)):
-                if(x[i]=="=" and i+1<len(x)):
-                    j=i+1
-                    if(x[j]!='{'):
-                        while(x[j]!=',' and x[j]!=';' and j+1<len(x)):
-                            #print(x[j])
-                            q+=x[j]
-                            j+=1
-                        d=(int_2_hex(int(q)))    
-                        #print(d)
-                        typewrite(d)
-                        q=""
-                    else:
-                        j+=1
-                        while(x[j]!='}'and x[j]!=';'):
-                            while(x[j]!=',' and x[j]!='}'):
+if __name__ == "__main__":
+    q=""
+    x=str(f.readline())
+    while x:
+        #print(x[0:3])
+        #print(x[0])
+        if(x[0]!="\n"):
+            if("int" in x):
+                for i in range(len(x)):
+                    if(x[i]=="=" and i+1<len(x)):
+                        j=i+1
+                        if(x[j]!='{'):
+                            while(x[j]!=',' and x[j]!=';' and j+1<len(x)):
+                                #print(x[j])
                                 q+=x[j]
                                 j+=1
                             d=(int_2_hex(int(q)))    
                             #print(d)
                             typewrite(d)
                             q=""
+                        else:
                             j+=1
-                            print(j)
-            
+                            while(x[j]!='}'and x[j]!=';'):
+                                while(x[j]!=',' and x[j]!='}'):
+                                    q+=x[j]
+                                    j+=1
+                                d=(int_2_hex(int(q)))    
+                                #print(d)
+                                typewrite(d)
+                                q=""
+                                j+=1
+                                print(j)
 
-        if("char" in x):
-            for i in range(len(x)):
-                if(x[i]=="=" and i+1<len(x)):
-                    j=i+1
-                    if(x[j]=="'"):
-                        while(x[j]!=',' and x[j]!=';' and j+1<len(x)):
-                            #print(x[j])
-                            q+=x[j]
-                            j+=1
-                        print(q)
-                        d=(char_2_hex(q[1]))    
-                        print(d)
-                        typewrite(d)
-                        q=""
 
-                    elif(x[j]=='"'):
-                        j+=1
-                        while(x[j]!='"'):
-                            d=(char_2_hex(x[j]))    
-                            j+=1
+            if("char" in x):
+                for i in range(len(x)):
+                    if(x[i]=="=" and i+1<len(x)):
+                        j=i+1
+                        if(x[j]=="'"):
+                            while(x[j]!=',' and x[j]!=';' and j+1<len(x)):
+                                #print(x[j])
+                                q+=x[j]
+                                j+=1
+                            print(q)
+                            d=(char_2_hex(q[1]))    
                             print(d)
                             typewrite(d)
                             q=""
 
-                    else:
-                        while(x[j]!=',' and x[j]!=';' and j+1<len(x)):
-                            #print(x[j])
-                            q+=x[j]
+                        elif(x[j]=='"'):
                             j+=1
-                        print(q)
-                        d=(char_2_hex(int(q)))    
-                        print(d)
-                        typewrite(d)
-                        q=""
+                            while(x[j]!='"'):
+                                d=(char_2_hex(x[j]))    
+                                j+=1
+                                print(d)
+                                typewrite(d)
+                                q=""
 
-                        
-                        
-                        
+                        else:
+                            while(x[j]!=',' and x[j]!=';' and j+1<len(x)):
+                                #print(x[j])
+                                q+=x[j]
+                                j+=1
+                            print(q)
+                            d=(char_2_hex(int(q)))    
+                            print(d)
+                            typewrite(d)
+                            q=""
 
-    else:
-        if next_addrs<6:
-                doubleClick(x=232,y=402)  # move mouse to XY coordinates over num_second seconds
-                typewrite(addrs[next_addrs])
-                press("enter")
-                next_addrs+=1
-                #print(next_addrs)
 
-    
-    x=str(f.readline())
-    
 
-f.close()
-alert(text="Task Completed.",title="ALERT!!!",button="OK")
+
+
+        else:
+            if next_addrs<6:
+                    doubleClick(x=232,y=402)  # move mouse to XY coordinates over num_second seconds
+                    typewrite(addrs[next_addrs])
+                    press("enter")
+                    next_addrs+=1
+                    #print(next_addrs)
+
+
+        x=str(f.readline())
+
+
+    f.close()
+    alert(text="Task Completed.",title="ALERT!!!",button="OK")
